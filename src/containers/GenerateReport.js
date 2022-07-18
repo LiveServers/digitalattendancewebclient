@@ -116,24 +116,45 @@ const GenerateReport = ({setPdfGeneratorOpen, pdfGeneratorOpen, pdfData, setPdfD
                   <View style={styles.studentDetails}>
                         <View style={styles.details}>
                             <Text style={styles.header}>No. </Text>
-                            <Text style={styles.stdRow}>1</Text>
+                            {
+                                pdfData.attendees.map((_,index)=>(
+                                    <React.Fragment key={index}>
+                                        <Text style={styles.stdRow}>{index+1}</Text>
+                                    </React.Fragment>
+                                ))
+                            }
+                            {/* <Text style={styles.stdRow}>1</Text>
                             <Text style={styles.stdRow}>2</Text>
                             <Text style={styles.stdRow}>3</Text>
-                            <Text style={styles.stdRow}>4</Text>
+                            <Text style={styles.stdRow}>4</Text> */}
                         </View>
                         <View style={styles.details}>
                             <Text style={styles.header}>Student Name</Text>
-                            <Text style={styles.stdRow}>Brian Kyole Mwau</Text>
+                             {
+                                pdfData.attendees.map((item,index)=>(
+                                    <React.Fragment key={index}>
+                                        <Text style={styles.stdRow}>{item?.studentName}</Text>
+                                    </React.Fragment>
+                                ))
+                            }
+                            {/* <Text style={styles.stdRow}>Brian Kyole Mwau</Text>
                             <Text style={styles.stdRow}>John Wahome</Text>
                             <Text style={styles.stdRow}>Samuel Mwangi</Text>
-                            <Text style={styles.stdRow}>Marvin Mureithi</Text>
+                            <Text style={styles.stdRow}>Marvin Mureithi</Text> */}
                         </View>
                         <View style={styles.details}>
                             <Text style={styles.header}>Registration Number</Text>
-                            <Text style={styles.stdRow}>ICT-G-4-0726-18</Text>
+                            {
+                                pdfData.attendees.map((item,index)=>(
+                                    <React.Fragment key={index}>
+                                        <Text style={styles.stdRow}>{item?.regNo}</Text>
+                                    </React.Fragment>
+                                ))
+                            }
+                            {/* <Text style={styles.stdRow}>ICT-G-4-0726-18</Text>
                             <Text style={styles.stdRow}>ICT-G-4-0436-18</Text>
                             <Text style={styles.stdRow}>ICT-G-4-0564-18</Text>
-                            <Text style={styles.stdRow}>ICT-G-4-0675-18</Text>
+                            <Text style={styles.stdRow}>ICT-G-4-0675-18</Text> */}
                         </View>
                   </View>
                 </Page>
